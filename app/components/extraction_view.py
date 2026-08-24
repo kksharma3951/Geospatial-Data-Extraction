@@ -58,7 +58,7 @@ def extraction_controls() -> rx.Component:
                     ),
                     None,
                 ),
-                class_name="p-4 border rounded-lg bg-white shadow-sm",
+                class_name="p-4 border rounded-lg bg-white shadow-xs",
             ),
             rx.el.button(
                 "Apply Filters",
@@ -74,7 +74,8 @@ def extraction_controls() -> rx.Component:
 def coordinate_converter() -> rx.Component:
     return rx.el.div(
         rx.el.h3(
-            "Coordinate Converter", class_name="text-lg font-bold text-gray-800 mb-4"
+            "Coordinate Converter",
+            class_name="text-lg font-bold text-gray-800 mb-4",
         ),
         rx.el.div(
             rx.el.input(
@@ -88,7 +89,7 @@ def coordinate_converter() -> rx.Component:
                 rx.el.option("Web Mercator", value="web_mercator"),
                 on_change=UploadState.set_coord_system,
                 value=UploadState.coord_system,
-                class_name="w-full p-2 border rounded-md bg-white",
+                class_name="w-full p-2 border rounded-md bg-white appearance-none",
             ),
             rx.el.button(
                 "Convert",
@@ -99,11 +100,11 @@ def coordinate_converter() -> rx.Component:
                 rx.el.p("Converted:", class_name="font-semibold"),
                 rx.el.p(
                     UploadState.converted_coords,
-                    class_name="text-sm font-mono bg-gray-100 p-2 rounded",
+                    class_name="text-sm font-mono bg-gray-100 p-2 rounded-sm",
                 ),
                 class_name="mt-2",
             ),
-            class_name="space-y-3 p-4 border rounded-lg bg-white shadow-sm",
+            class_name="space-y-3 p-4 border rounded-lg bg-white shadow-xs",
         ),
         class_name="w-full max-w-2xl mx-auto mt-8",
     )
@@ -111,15 +112,21 @@ def coordinate_converter() -> rx.Component:
 
 def extracted_data_table() -> rx.Component:
     return rx.el.div(
-        rx.el.h3("Extracted Data", class_name="text-lg font-bold text-gray-800 mb-4"),
+        rx.el.h3(
+            "Extracted Data", class_name="text-lg font-bold text-gray-800 mb-4"
+        ),
         rx.cond(
             UploadState.extracted_points.length() > 0,
             rx.el.div(
                 rx.el.table(
                     rx.el.thead(
                         rx.el.tr(
-                            rx.el.th("Latitude", class_name="px-4 py-2 text-left"),
-                            rx.el.th("Longitude", class_name="px-4 py-2 text-left"),
+                            rx.el.th(
+                                "Latitude", class_name="px-4 py-2 text-left"
+                            ),
+                            rx.el.th(
+                                "Longitude", class_name="px-4 py-2 text-left"
+                            ),
                         )
                     ),
                     rx.el.tbody(

@@ -14,8 +14,10 @@ def upload_page() -> rx.Component:
         sidebar(),
         rx.el.main(
             rx.el.div(
-                rx.el.h1("Data Upload", class_name="text-2xl font-bold text-gray-900"),
-                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-sm sticky top-0 z-10",
+                rx.el.h1(
+                    "Data Upload", class_name="text-2xl font-bold text-gray-900"
+                ),
+                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-xs sticky top-0 z-10",
             ),
             rx.el.div(
                 upload_component(),

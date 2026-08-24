@@ -16,7 +16,7 @@ def index() -> rx.Component:
                     "Geospatial Data Extraction",
                     class_name="text-2xl font-bold text-gray-900",
                 ),
-                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-sm",
+                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-xs",
             ),
             rx.el.div(map_view(), class_name="flex-1 p-4"),
             class_name="flex-1 flex flex-col h-screen",
@@ -29,7 +29,9 @@ app = rxe.App(
     theme=rx.theme(appearance="light"),
     head_components=[
         rx.el.link(rel="preconnect", href="https://fonts.googleapis.com"),
-        rx.el.link(rel="preconnect", href="https://fonts.gstatic.com", cross_origin=""),
+        rx.el.link(
+            rel="preconnect", href="https://fonts.gstatic.com", cross_origin=""
+        ),
         rx.el.link(
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
             rel="stylesheet",

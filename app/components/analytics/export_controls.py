@@ -5,7 +5,9 @@ from app.states.analytics_state import AnalyticsState
 def export_controls() -> rx.Component:
     """Controls for exporting data."""
     return rx.el.div(
-        rx.el.h3("Export Data", class_name="text-lg font-bold text-gray-800 mb-4"),
+        rx.el.h3(
+            "Export Data", class_name="text-lg font-bold text-gray-800 mb-4"
+        ),
         rx.el.div(
             rx.el.button(
                 rx.icon("file-down", class_name="h-4 w-4 mr-2"),
@@ -21,5 +23,5 @@ def export_controls() -> rx.Component:
             ),
             class_name="grid grid-cols-1 md:grid-cols-2 gap-4",
         ),
-        class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-sm",
+        class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-xs",
     )

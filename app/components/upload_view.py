@@ -25,18 +25,24 @@ def upload_component() -> rx.Component:
             class_name="w-full",
         ),
         rx.el.div(
-            rx.el.h3("Selected Files:", class_name="font-semibold text-gray-700"),
+            rx.el.h3(
+                "Selected Files:", class_name="font-semibold text-gray-700"
+            ),
             rx.cond(
                 rx.selected_files("upload-area").length() > 0,
                 rx.foreach(
                     rx.selected_files("upload-area"),
                     lambda file: rx.el.div(
-                        rx.icon("file", class_name="h-4 w-4 mr-2 text-gray-500"),
+                        rx.icon(
+                            "file", class_name="h-4 w-4 mr-2 text-gray-500"
+                        ),
                         rx.el.span(file, class_name="text-sm text-gray-800"),
                         class_name="flex items-center p-2 bg-gray-100 rounded-md",
                     ),
                 ),
-                rx.el.p("No files selected.", class_name="text-sm text-gray-500"),
+                rx.el.p(
+                    "No files selected.", class_name="text-sm text-gray-500"
+                ),
             ),
             class_name="mt-4 space-y-2",
         ),
@@ -52,7 +58,9 @@ def upload_component() -> rx.Component:
             UploadState.uploading,
             rx.el.div(
                 rx.el.progress(
-                    value=UploadState.upload_progress, max=100, class_name="w-full mt-2"
+                    value=UploadState.upload_progress,
+                    max=100,
+                    class_name="w-full mt-2",
                 ),
                 rx.el.p(
                     f"Uploading... {UploadState.upload_progress}%",
@@ -67,7 +75,9 @@ def upload_component() -> rx.Component:
 def uploaded_files_list() -> rx.Component:
     """A list of already uploaded files."""
     return rx.el.div(
-        rx.el.h3("Uploaded Files", class_name="text-lg font-bold text-gray-800 mb-4"),
+        rx.el.h3(
+            "Uploaded Files", class_name="text-lg font-bold text-gray-800 mb-4"
+        ),
         rx.cond(
             UploadState.uploaded_files.length() > 0,
             rx.el.ul(
@@ -75,16 +85,20 @@ def uploaded_files_list() -> rx.Component:
                     UploadState.uploaded_files,
                     lambda filename: rx.el.li(
                         rx.icon(
-                            "square_check", class_name="h-5 w-5 text-green-500 mr-3"
+                            "square_check",
+                            class_name="h-5 w-5 text-green-500 mr-3",
                         ),
-                        rx.el.span(filename, class_name="font-medium text-gray-700"),
-                        class_name="flex items-center p-3 bg-white rounded-lg border border-gray-200 shadow-sm",
+                        rx.el.span(
+                            filename, class_name="font-medium text-gray-700"
+                        ),
+                        class_name="flex items-center p-3 bg-white rounded-lg border border-gray-200 shadow-xs",
                     ),
                 ),
                 class_name="space-y-3",
             ),
             rx.el.p(
-                "No files have been uploaded yet.", class_name="text-sm text-gray-500"
+                "No files have been uploaded yet.",
+                class_name="text-sm text-gray-500",
             ),
         ),
         class_name="w-full max-w-2xl mx-auto mt-8 p-6 bg-gray-50 rounded-lg border border-gray-200",

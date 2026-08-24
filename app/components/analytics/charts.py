@@ -7,7 +7,8 @@ def file_type_distribution_chart() -> rx.Component:
     """A pie chart showing the distribution of uploaded file types."""
     return rx.el.div(
         rx.el.h3(
-            "File Type Distribution", class_name="text-lg font-bold text-gray-800 mb-4"
+            "File Type Distribution",
+            class_name="text-lg font-bold text-gray-800 mb-4",
         ),
         rx.recharts.pie_chart(
             rx.recharts.graphing_tooltip(),
@@ -15,7 +16,9 @@ def file_type_distribution_chart() -> rx.Component:
                 rx.foreach(
                     AnalyticsState.file_type_chart_data,
                     lambda item, index: rx.recharts.cell(
-                        fill=rx.Var.create(["#3b82f6", "#10b981", "#f59e0b"])[index]
+                        fill=rx.Var.create(["#3b82f6", "#10b981", "#f59e0b"])[
+                            index
+                        ]
                     ),
                 ),
                 data=AnalyticsState.file_type_chart_data,
@@ -32,5 +35,5 @@ def file_type_distribution_chart() -> rx.Component:
             height=300,
         ),
         html_legend(),
-        class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-sm",
+        class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-xs",
     )

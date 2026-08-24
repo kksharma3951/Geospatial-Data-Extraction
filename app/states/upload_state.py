@@ -31,6 +31,18 @@ class UploadState(rx.State):
     coord_system: str = "wgs84"
     converted_coords: str = ""
 
+    @rx.event
+    def set_bbox_enabled(self, value: bool):
+        self.bbox_enabled = value
+
+    @rx.event
+    def set_coord_input(self, value: str):
+        self.coord_input = value
+
+    @rx.event
+    def set_coord_system(self, value: str):
+        self.coord_system = value
+
     async def _parse_geojson(self, content: str):
         data = json.loads(content)
         for feature in data.get("features", []):
@@ -40,7 +52,9 @@ class UploadState(rx.State):
 
     async def _parse_kml(self, content: str):
         root = ET.fromstring(content)
-        for placemark in root.findall(".//{http://www.opengis.net/kml/2.2}Placemark"):
+        for placemark in root.findall(
+            ".//{http://www.opengis.net/kml/2.2}Placemark"
+        ):
             point = placemark.find(".//{http://www.opengis.net/kml/2.2}Point")
             if point is not None:
                 coords_text = point.find(
@@ -129,13 +143,9 @@ class UploadState(rx.State):
             if self.coord_system == "utm":
                 easting = (lon + 180) * 10000
                 northing = lat * 10000
-                self.converted_coords = (
-                    f"Zone 11N, Easting: {easting:.2f}, Northing: {northing:.2f}"
-                )
+                self.converted_coords = f"Zone 11N, Easting: {easting:.2f}, Northing: {northing:.2f}"
             elif self.coord_system == "web_mercator":
-                self.converted_coords = (
-                    f"X: {lon * 20037508.34 / 180}, Y: {lat * 20037508.34 / 180}"
-                )
+                self.converted_coords = f"X: {lon * 20037508.34 / 180}, Y: {lat * 20037508.34 / 180}"
             else:
                 self.converted_coords = "Select a target system."
         except Exception as e:

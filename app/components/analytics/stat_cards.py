@@ -10,11 +10,15 @@ def stat_card(stat: StatCard) -> rx.Component:
             class_name="p-3 bg-gray-100 rounded-lg",
         ),
         rx.el.div(
-            rx.el.p(stat["name"], class_name="text-sm font-medium text-gray-600"),
-            rx.el.p(stat["value"], class_name="text-2xl font-bold text-gray-900"),
+            rx.el.p(
+                stat["name"], class_name="text-sm font-medium text-gray-600"
+            ),
+            rx.el.p(
+                stat["value"], class_name="text-2xl font-bold text-gray-900"
+            ),
             class_name="ml-4",
         ),
-        class_name="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm",
+        class_name="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-xs",
     )
 
 

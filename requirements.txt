@@ -1,5 +1,5 @@
 
-reflex==0.8.17
+reflex[db]==0.9.8
 reflex-enterprise
 laspy[laszip]
 plotly

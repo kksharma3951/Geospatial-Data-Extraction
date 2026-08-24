@@ -13,9 +13,10 @@ def analytics_page() -> rx.Component:
         rx.el.main(
             rx.el.div(
                 rx.el.h1(
-                    "Analytics Dashboard", class_name="text-2xl font-bold text-gray-900"
+                    "Analytics Dashboard",
+                    class_name="text-2xl font-bold text-gray-900",
                 ),
-                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-sm sticky top-0 z-10",
+                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-xs sticky top-0 z-10",
             ),
             rx.el.div(
                 stat_card_grid(),

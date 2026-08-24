@@ -45,15 +45,21 @@ def metadata_display() -> rx.Component:
         LidarState.metadata,
         rx.el.div(
             rx.el.h3(
-                "LiDAR Metadata", class_name="text-lg font-bold text-gray-800 mb-4"
+                "LiDAR Metadata",
+                class_name="text-lg font-bold text-gray-800 mb-4",
             ),
             rx.el.div(
-                rx.el.p(rx.el.strong("File:"), f" {LidarState.metadata['file_name']}"),
                 rx.el.p(
-                    rx.el.strong("Points:"), f" {LidarState.metadata['point_count']}"
+                    rx.el.strong("File:"),
+                    f" {LidarState.metadata['file_name']}",
                 ),
                 rx.el.p(
-                    rx.el.strong("Format:"), f" {LidarState.metadata['point_format']}"
+                    rx.el.strong("Points:"),
+                    f" {LidarState.metadata['point_count']}",
+                ),
+                rx.el.p(
+                    rx.el.strong("Format:"),
+                    f" {LidarState.metadata['point_format']}",
                 ),
                 rx.el.p(
                     rx.el.strong("Bounds Min:"),
@@ -69,7 +75,7 @@ def metadata_display() -> rx.Component:
                 ),
                 class_name="text-sm space-y-1",
             ),
-            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-sm mt-8",
+            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-xs mt-8",
         ),
         None,
     )
@@ -85,14 +91,14 @@ def point_cloud_viewer() -> rx.Component:
                 class_name="text-lg font-bold text-gray-800 mb-4",
             ),
             rx.plotly(data=LidarState.point_cloud_fig, height="600px"),
-            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-sm mt-8",
+            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-xs mt-8",
         ),
         rx.el.div(
             rx.el.p(
                 "Upload a LiDAR file to see the 3D visualization.",
                 class_name="text-center text-gray-500 py-20",
             ),
-            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-sm mt-8",
+            class_name="p-6 bg-white border border-gray-200 rounded-lg shadow-xs mt-8",
         ),
     )
 
@@ -104,9 +110,10 @@ def lidar_page() -> rx.Component:
         rx.el.main(
             rx.el.div(
                 rx.el.h1(
-                    "LiDAR Processing", class_name="text-2xl font-bold text-gray-900"
+                    "LiDAR Processing",
+                    class_name="text-2xl font-bold text-gray-900",
                 ),
-                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-sm sticky top-0 z-10",
+                class_name="h-16 flex items-center px-6 border-b border-gray-200 bg-white shadow-xs sticky top-0 z-10",
             ),
             rx.el.div(
                 lidar_upload_component(),

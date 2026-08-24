@@ -56,7 +56,9 @@ def coordinate_display() -> rx.Component:
         ),
         rx.el.div(
             rx.el.span("Zoom:", class_name="font-semibold text-gray-600"),
-            rx.el.span(MapState.zoom.to_string(), class_name="ml-1 text-gray-800"),
+            rx.el.span(
+                MapState.zoom.to_string(), class_name="ml-1 text-gray-800"
+            ),
         ),
-        class_name="absolute bottom-4 left-4 z-[1000] bg-white bg-opacity-80 backdrop-blur-sm p-2 rounded-lg shadow-md text-xs flex gap-4 border border-gray-200",
+        class_name="absolute bottom-4 left-4 z-[1000] bg-white/80 backdrop-blur-xs p-2 rounded-lg shadow-md text-xs flex gap-4 border border-gray-200",
     )
